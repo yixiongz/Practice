@@ -24,4 +24,10 @@ urlpatterns = [
     path('add/', views.add),
     path('delete/', views.delete),
     path('change/', views.change),
+
+    # 老师功能
+    path('teacher_list/', views.tlist),
+    path('teacher_add/', views.tadd),
+    path('teacher_delete/', views.tdel),
+    path('teacher_edit/', views.tedit),
 ]

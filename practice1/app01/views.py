@@ -56,3 +56,62 @@ def change(request):
         return redirect("/list/")
     return HttpResponse("不存在....")
 
+
+# 老师列表
+def tlist(request):
+    ret = models.Teacher.objects.all()
+    return render(request, "teacher_list.html", {"teacher_list": ret})
+
+
+# 添加老师以及对应学校关系
+def tadd(request):
+    if request.method == "POST":
+        # 获取POST的值，然后更新数据库
+        tname = request.POST.get("name")
+        tschool = request.POST.get("school")
+        models.Teacher.objects.create(name=tname, sid_id=tschool)
+        return redirect("/teacher_list/")
+
+    # 点击页面 methed = get时 将学校列表展示到增加页面中
+    ret = models.school.objects.all()
+    return render(request, "teacher_add.html", {"school_list": ret})
+
+
+#  删除
+def tdel(request):
+    if request.method == "GET":
+        # 获取要删除的学校ID号
+        sid = request.GET.get("id")
+        models.Teacher.objects.get(id=sid).delete()
+    return redirect("/teacher_list/")
+
+
+# 修改
+def tedit(requset):
+
+    if requset.method == "POST":
+        #  以ID做为固定值，然后来进行修改
+        old_sid = requset.POST.get("sid")
+        #  获取修改之后新的数据
+        new_tname = requset.POST.get("name")
+        new_school_id = requset.POST.get("school")
+        # 获取老的数据行
+        new_school_tname = models.Teacher.objects.get(id=old_sid)
+        # 修改
+        new_school_tname.name = new_tname
+        new_school_tname.sid_id = new_school_id
+        new_school_tname.save()
+        return redirect("/teacher_list/")
+
+    tid = requset.GET.get("techer_id")
+    # 点击修改获取的原本的值
+    obj = models.Teacher.objects.get(id=tid)
+
+    # 页面点击修改时获取 id 获取在数据库中查这个ID， 并且返回给修改页面中
+    # 学校列表
+    ret = models.school.objects.all()
+    return render(
+        requset,
+        "teacher_edit.html",
+        {"school_list": ret,"school_obj": obj}
+    )
