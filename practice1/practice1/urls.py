@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from app01 import views
 
 urlpatterns = [
+    # 学校功能
     path('admin/', admin.site.urls),
+    path('list/', views.list),
+    path('add/', views.add),
+    path('delete/', views.delete),
+    path('change/', views.change),
 ]

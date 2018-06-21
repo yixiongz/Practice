@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改</title>
+</head>
+<body>
+<h1>修改</h1>
+<form action="/change/" method="post">
+    <p style="display: none">
+         ID: <input type="text" name="schoolId" placeholder="schoolId" value="{{ change_val.id }}">
+    </p>
+    <p>名称：<input type="text" name="schoolname" placeholder="schoolname" value="{{ change_val.name }}"></p>
+    <p><input type="submit" value="提交"></p>
+</form>
+<p>{{ error }}</p>
+</body>
+</html>

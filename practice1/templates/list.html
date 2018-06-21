@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+</head>
+<body>
+<a href="/add/">添加</a>
+    <table border="1">
+        <tr>
+            <th>序号</th>
+            <th>ID</th>
+            <th>名称</th>
+            <th>操作</th>
+            <th>修改</th>
+        </tr>
+        {% for foo in school_list %}
+            <tr>
+            <td> {{ forloop.counter }}</td>
+            <td> {{ foo.id }}</td>
+            <td> {{ foo.name }}</td>
+            <td><a href="/delete/?id={{ foo.id }}">删除</a></td>
+            <td><a href="/change/?id={{ foo.id }}">修改</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>
