@@ -30,3 +30,9 @@ teacher	  多表连接 teacher
 id	
 student_id	
 teacher_id		
+
+
+Django ORM 多表连接操作
+teacher = models.ManyToManyField(to="Teacher")
+
+应用修改models.py需要运行 python manage.py makemigrations

@@ -15,7 +15,7 @@ class Teacher(models.Model):
     # ID 自增长
     id = models.AutoField(primary_key=True)
     #  老师名字不能相同
-    name = models.CharField(max_length=30, unique=True, null=False)
+    name = models.CharField(max_length=20, unique=True, null=False)
     # 外健关连学校  它会自动关连school的主健，在数据库中的表现是 sid_id
     # 需要注意的是 配置好数据库类的时候需要 重新运行以下命令
     # python manage.py makemigrations
@@ -23,4 +23,8 @@ class Teacher(models.Model):
     sid = models.ForeignKey(to="school",on_delete="CASCADE")
     # 2之后就需要加上on_delete这个参数 参考 https://www.cnblogs.com/phyger/p/8035253.html
 
-class 
+class Student(models.Model):
+    id = models.AutoField(primary_key=True)
+    sname = models.CharField(max_length=30, unique=True,null=False)
+    # 多表连接需要使用ManyToManyField， 可参考：https://www.cnblogs.com/PythonHomePage/p/7634394.html
+    teacher = models.ManyToManyField(to="Teacher")
