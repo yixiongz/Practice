@@ -12,23 +12,38 @@
 
 
 数据库表连接关系
+
 school		
+
 id			
+
 name		
+
 				
 Teacher				
+
 id	
+
 name
+
 sid	  外键关连school	
 
 
+
 Student	
+
 id
+
 name
+
 teacher	  多表连接 teacher
 
 
+
 student2teacher	
+
 id	
+
 student_id	
+
 teacher_id		
