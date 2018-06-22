@@ -12,38 +12,21 @@
 
 
 数据库表连接关系
-
-school		
-
+------------------ school --------------	
 id			
-
 name		
 
-				
-Teacher				
-
+------------------ Teacher --------------
 id	
-
 name
-
 sid	  外键关连school	
 
-
-
-Student	
-
+----------------- Student ---------------
 id
-
 name
-
 teacher	  多表连接 teacher
 
-
-
-student2teacher	
-
+--------------- student2teacher ---------
 id	
-
 student_id	
-
 teacher_id		
