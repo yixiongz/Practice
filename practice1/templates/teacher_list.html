@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>老师列表</title>
+    <style>
+        * a {
+            text-decoration: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+
+<table border="1">
+    <thead>
+    <tr>
+        <td>序列</td>
+        <td>姓名</td>
+        <td>所在学校</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for foo in teacher_list %}
+        <tr>
+            <th>{{ forloop.counter }}</th>
+            <th>{{ foo.name }}</th>
+            {# 获取sid的对象属性, school数据 #}
+            {#            <th>{{ foo.sid }}</th>#}
+            {# 获取sid对象， 然后根据外健school 查找name这个对象 #}
+            <th>{{ foo.sid.name }}</th>
+            {#  获取数据库的sid_id的值  如 1,2,3 #}
+            {#            <th>{{ foo.sid_id }}</th>#}
+            <p>
+                {#   这里获取的是老师表的ID 而不是学校的ID号   #}
+            <th>
+                <a href="/teacher_delete/?id={{ foo.id }}">删除</a>
+            </th>
+            <th>
+                {# 获取老师的ID号  #}
+                <a href="/teacher_edit/?techer_id={{ foo.id }}">修改</a>
+            </th>
+            </p>
+
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+<h4><a href="/teacher_add/">增加</a></h4>
+</body>
+</html>

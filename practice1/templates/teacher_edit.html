@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>增加</title>
+</head>
+<body>
+<h3>修改讲师</h3>
+<form action="/teacher_edit/" method="post">
+    <input type="text" style="display: none;" name="sid" value="{{ school_obj.id }}">
+    <p>
+        姓名: <input type="text" name="name" value={{ school_obj.name }}>
+    </p>
+    <p>
+        选择学校：<select name="school">
+            {% for foo in school_list %}
+                {#  当修改名称 等于循环的名称时，选择它      #}
+                {% if school_obj.sid.name == foo.name %}
+                    <option  selected value="{{ foo.id }}">{{ foo.name }}</option>
+                {#  如果没有就让重新选择   #}
+                {% else %}
+                    <option value="{{ foo.id }}">{{ foo.name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </p>
+    <p>
+        <input type="submit" value="提交">
+    </p>
+</form>
+</body>
+</html>
