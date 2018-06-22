@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from app01 import views
 
+
 urlpatterns = [
     # 学校功能
     path('admin/', admin.site.urls),
@@ -30,4 +31,7 @@ urlpatterns = [
     path('teacher_add/', views.tadd),
     path('teacher_delete/', views.tdel),
     path('teacher_edit/', views.tedit),
+
+    # 学生
+    path('student_list/', views.tedit),
 ]

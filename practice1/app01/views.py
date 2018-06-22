@@ -115,3 +115,8 @@ def tedit(requset):
         "teacher_edit.html",
         {"school_list": ret,"school_obj": obj}
     )
+
+
+def slist(request):
+    ret = models.Teacher.objects.all()
+    print(ret.name)
