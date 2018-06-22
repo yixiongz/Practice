@@ -1,21 +1,34 @@
-# 多表 操作   一对多操作
+# 多表 操作   多对多操作
 
 学校 school
 
 老师 teacher
 
-
-mysql> insert into app01_school (name) values ("中海小学"),("南京大学")
-
-mysql> insert into app01_school (name) values ("天海中学"),("南开大学");
-
-
-mysql> insert into app01_teacher (name, sid_id) values ("xiong","1"),("yu","4");
+学生 student
 
 
 
 
-应用app01 views.py中配置函数
 
 
-项目文件中修改  urls.py文件
+数据库表连接关系
+school		
+id			
+name		
+				
+Teacher				
+id	
+name
+sid	  外键关连school	
+
+
+Student	
+id
+name
+teacher	  多表连接 teacher
+
+
+student2teacher	
+id	
+student_id	
+teacher_id		

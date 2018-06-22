@@ -23,3 +23,4 @@ class Teacher(models.Model):
     sid = models.ForeignKey(to="school",on_delete="CASCADE")
     # 2之后就需要加上on_delete这个参数 参考 https://www.cnblogs.com/phyger/p/8035253.html
 
+class 
